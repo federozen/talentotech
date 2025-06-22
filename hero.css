@@ -1,6 +1,6 @@
 .hero {
     position: relative;
-    background-image: url('/img/hero.jpg');
+    background-image: url('img/hero.jpg');
     height: 90vh;
     width: 100%;
     background-size: cover;
