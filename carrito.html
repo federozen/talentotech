@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Carrito - Futboleros</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+</head>
+<body>
+  <header class="header">
+    <a href="index.html">
+      <img src="img/logo.png" class="logo" alt="Logo Futboleros">
+    </a>
+    <nav>
+      <ul id="navbar" class="navbar">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#">Tienda</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Acerca de</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="carrito.html" class="cart-icon">Carrito</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="section-p1">
+    <h2>Tu Carrito</h2>
+    <table id="tabla_carrito">
+      <thead>
+        <tr>
+          <th>Producto</th>
+          <th>Precio</th>
+          <th>Cantidad</th>
+          <th>Subtotal</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- carrito.js inyecta aquí las filas dinámicamente -->
+      </tbody>
+    </table>
+    <div class="resumen">
+      <strong>Total: $<span id="total">0.00</span></strong>
+    </div>
+  </main>
+
+  <script src="carrito.js"></script>
+  <script src="productos.js"></script>
+  <body>
+</html>
