@@ -1,0 +1,98 @@
+/* Estilos para tabla del carrito */
+#tabla_carrito {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 30px;
+}
+
+#tabla_carrito thead {
+  background-color: #088178;
+  color: white;
+}
+
+#tabla_carrito th,
+#tabla_carrito td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+  vertical-align: middle;
+}
+
+#tabla_carrito td img {
+  width: 80px;
+  height: auto;
+  border-radius: 6px;
+}
+
+#tabla_carrito input[type="number"] {
+  width: 60px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.remove-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  color: #ff3333;
+  transition: color 0.3s ease;
+}
+
+.remove-btn:hover {
+  color: #c40000;
+}
+
+/* Total resumen */
+.resumen {
+  margin-top: 30px;
+  text-align: right;
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  padding: 10px;
+  border-top: 2px solid #eee;
+}
+
+/* Vacío */
+#tabla_carrito td[colspan="6"] {
+  font-size: 16px;
+  color: #777;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  #tabla_carrito thead {
+    display: none;
+  }
+
+  #tabla_carrito, #tabla_carrito tbody, #tabla_carrito tr, #tabla_carrito td {
+    display: block;
+    width: 100%;
+  }
+
+  #tabla_carrito tr {
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+  }
+
+  #tabla_carrito td {
+    text-align: left;
+    padding: 8px 10px;
+    border: none;
+  }
+
+  #tabla_carrito td img {
+    width: 100%;
+    max-width: 150px;
+    margin: 10px 0;
+  }
+
+  .resumen {
+    text-align: center;
+  }
+}

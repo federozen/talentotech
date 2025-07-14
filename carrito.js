@@ -136,3 +136,16 @@ function actualizarTotales() {
 
   actualizarTotalCarrito(sub);
 }
+
+function agregarAlCarrito(id) {
+  debugger
+  let carrito = JSON.parse(localStorage.getItem("carritoDeCompras")) || [];
+  const item = carrito.find(p => p.id === id);
+  if (item) {
+    item.cantidad += 1;
+  } else {
+    carrito.push({ id, cantidad: 1 });
+  }
+  localStorage.setItem("carritoDeCompras", JSON.stringify(carrito));
+  alert("Producto agregado al carrito");
+}

@@ -1,70 +1,58 @@
-document.addEventListener('DOMContentLoaded', function () {
-  const formularioContacto = document.getElementById('formularioContacto');
-  const tuNombre = document.getElementById('tuNombre');
-  const tuCorreo = document.getElementById('tuCorreo');
-  const asunto = document.getElementById('asunto');
-  const tuMensaje = document.getElementById('tuMensaje');
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("formularioContacto");
 
-  // Función para manejar la visibilidad y el texto de error
-  const mostrarEstadoCampo = (elementoInput, esValido, mensaje = '') => {
-    const divPadre = elementoInput.parentNode;
-    const textoError = divPadre.querySelector('.texto-error');
-
-    if (esValido) {
-      divPadre.classList.remove('error');
-      textoError.innerText = '';
-    } else {
-      divPadre.classList.add('error');
-      textoError.innerText = mensaje;
+  const campos = {
+    nombre: {
+      el: document.getElementById("nombre"),
+      validar: (valor) => valor.trim().length >= 3,
+      mensaje: "El nombre debe tener al menos 3 caracteres."
+    },
+    correo: {
+      el: document.getElementById("correo"),
+      validar: (valor) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(valor),
+      mensaje: "El correo no es válido."
+    },
+    asunto: {
+      el: document.getElementById("asunto"),
+      validar: (valor) => valor.trim().length >= 5,
+      mensaje: "El asunto debe tener al menos 5 caracteres."
+    },
+    mensaje: {
+      el: document.getElementById("mensaje"),
+      validar: (valor) => valor.trim().length >= 10,
+      mensaje: "El mensaje debe tener al menos 10 caracteres."
     }
   };
 
-  // Validaciones específicas
-  const validarNombre = () => {
-    const valor = tuNombre.value.trim();
-    const esValido = valor.length >= 3;
-    mostrarEstadoCampo(tuNombre, esValido, 'El nombre debe tener al menos 3 caracteres.');
-    return esValido;
-  };
-
-  const validarCorreo = () => {
-    const valor = tuCorreo.value.trim();
-    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const esValido = regex.test(valor);
-    mostrarEstadoCampo(tuCorreo, esValido, 'Ingresa un correo válido.');
-    return esValido;
-  };
-
-  const validarAsunto = () => {
-    const valor = asunto.value.trim();
-    const esValido = valor.length >= 5;
-    mostrarEstadoCampo(asunto, esValido, 'El asunto debe tener al menos 5 caracteres.');
-    return esValido;
-  };
-
-  const validarMensaje = () => {
-    const valor = tuMensaje.value.trim();
-    const esValido = valor.length >= 10;
-    mostrarEstadoCampo(tuMensaje, esValido, 'El mensaje debe tener al menos 10 caracteres.');
-    return esValido;
-  };
-
-  formularioContacto.addEventListener('submit', function (e) {
-    e.preventDefault();
-    let formularioEsValido = true;
-
-    // Validar cada campo
-    [validarNombre(), validarCorreo(), validarAsunto(), validarMensaje()]
-      .forEach(esCampoValido => {
-        if (!esCampoValido) formularioEsValido = false;
-      });
-
-    if (formularioEsValido) {
-      console.log('¡Formulario enviado con éxito!');
-      // Aquí podrías enviar con fetch...
-      formularioContacto.reset();
+  const mostrarError = (campo, valido, mensaje) => {
+    const grupo = campo.parentElement;
+    const errorDiv = grupo.querySelector(".texto-error");
+    if (valido) {
+      grupo.classList.remove("error");
+      errorDiv.textContent = "";
     } else {
-      console.log('El formulario no es válido. Por favor, revisa los campos.');
+      grupo.classList.add("error");
+      errorDiv.textContent = mensaje;
+    }
+  };
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    let esValido = true;
+
+    for (let key in campos) {
+      const campo = campos[key];
+      const valor = campo.el.value;
+      const valido = campo.validar(valor);
+      mostrarError(campo.el, valido, campo.mensaje);
+      if (!valido) esValido = false;
+    }
+
+    if (esValido) {
+      alert("Formulario enviado con éxito (simulado)");
+      form.reset();
+    } else {
+      alert("Por favor, revisá los campos.");
     }
   });
 });

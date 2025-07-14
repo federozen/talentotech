@@ -119,3 +119,32 @@ footer {
     text-decoration: none;
     font-weight: 300;
 }
+
+
+.form-contacto {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.form-group.error input,
+.form-group.error textarea {
+  border-color: red;
+}
+
+.texto-error {
+  color: red;
+  font-size: 13px;
+  margin-top: 5px;
+}

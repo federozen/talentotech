@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contacto - Futboleros</title>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
 </head>
 <body>
   <header class="header">
     <a href="index.html">
-      <img src="img/logo.png" class="logo" alt="Logo Futboleros">
+      <img src="img/logo.png" class="logo" alt="Logo Futboleros" />
     </a>
     <nav>
       <ul id="navbar" class="navbar">
         <li><a href="index.html">Home</a></li>
-        <li><a href="#">Tienda</a></li>
+        <li><a href="tienda.html">Tienda</a></li>
         <li><a href="#">Blog</a></li>
         <li><a href="#">Acerca de</a></li>
         <li><a href="contacto.html">Contacto</a></li>
@@ -28,28 +28,38 @@
     <h2>Contáctanos</h2>
     <form id="formularioContacto" class="form-contacto">
       <div class="form-group">
-        <label for="tuNombre">Nombre</label>
-        <input type="text" id="tuNombre" placeholder="Tu nombre completo">
+        <label for="nombre">Nombre completo</label>
+        <input type="text" id="nombre" placeholder="Ej: Juan Pérez" />
         <div class="texto-error"></div>
       </div>
+
       <div class="form-group">
-        <label for="tuCorreo">Correo</label>
-        <input type="email" id="tuCorreo" placeholder="tu@correo.com">
+        <label for="correo">Correo electrónico</label>
+        <input type="email" id="correo" placeholder="ejemplo@correo.com" />
         <div class="texto-error"></div>
       </div>
+
       <div class="form-group">
         <label for="asunto">Asunto</label>
-        <input type="text" id="asunto" placeholder="Asunto del mensaje">
+        <input type="text" id="asunto" placeholder="Motivo del mensaje" />
         <div class="texto-error"></div>
       </div>
+
       <div class="form-group">
-        <label for="tuMensaje">Mensaje</label>
-        <textarea id="tuMensaje" rows="5" placeholder="Escribe tu mensaje aquí"></textarea>
+        <label for="mensaje">Mensaje</label>
+        <textarea id="mensaje" rows="5" placeholder="Escribí tu mensaje aquí..."></textarea>
         <div class="texto-error"></div>
       </div>
-      <button type="submit">Enviar</button>
+
+      <button type="submit">Enviar mensaje</button>
     </form>
   </main>
+
+  <footer class="section-p1">
+    <div class="footer-content">
+      <p>© 2025 Futboleros - Todos los derechos reservados</p>
+    </div>
+  </footer>
 
   <script src="contacto.js"></script>
 </body>
